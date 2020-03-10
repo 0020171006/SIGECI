@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SGCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="principal_id" />
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Act_Indicador">
+    <Key>
+      <PropertyRef Name="Id_Act_Indicador" />
+      <PropertyRef Name="Id_Indicador" />
+      <PropertyRef Name="Id_Actividad" />
+      <PropertyRef Name="Valor" />
+    </Key>
+    <Property Name="Id_Act_Indicador" Type="Int32" Nullable="false" />
+    <Property Name="Id_Indicador" Type="Int32" Nullable="false" />
+    <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+    <Property Name="Valor" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Actividades">
+    <Key>
+      <PropertyRef Name="Id_Actividad" />
+      <PropertyRef Name="Id_Tema" />
+      <PropertyRef Name="Valor" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="Id_Instrumento" />
+    </Key>
+    <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+    <Property Name="Id_Tema" Type="Int32" Nullable="false" />
+    <Property Name="Valor" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Instrumento" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Alumnos">
+    <Key>
+      <PropertyRef Name="No_Control" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="ApePat" />
+      <PropertyRef Name="ApeMat" />
+    </Key>
+    <Property Name="No_Control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApePat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApeMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Calificaciones">
+    <Key>
+      <PropertyRef Name="Id_Calificacion" />
+      <PropertyRef Name="Id_Actividad" />
+      <PropertyRef Name="No_Control" />
+      <PropertyRef Name="Retroalimentacion" />
+    </Key>
+    <Property Name="Id_Calificacion" Type="Int32" Nullable="false" />
+    <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+    <Property Name="No_Control" Type="Int32" Nullable="false" />
+    <Property Name="Retroalimentacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Carreras">
+    <Key>
+      <PropertyRef Name="Id_Carrera" />
+      <PropertyRef Name="Nom_Carrera" />
+    </Key>
+    <Property Name="Id_Carrera" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Grupo_Alumno">
+    <Key>
+      <PropertyRef Name="Id_Grupo_Alumno" />
+      <PropertyRef Name="Clave_Grupo" />
+      <PropertyRef Name="No_Control" />
+    </Key>
+    <Property Name="Id_Grupo_Alumno" Type="Int32" Nullable="false" />
+    <Property Name="Clave_Grupo" Type="Int32" Nullable="false" />
+    <Property Name="No_Control" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Grupos">
+    <Key>
+      <PropertyRef Name="Clave_Grupo" />
+      <PropertyRef Name="Id_Materia" />
+      <PropertyRef Name="Id_Usuario" />
+    </Key>
+    <Property Name="Clave_Grupo" Type="Int32" Nullable="false" />
+    <Property Name="Id_Materia" Type="Int32" Nullable="false" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Indicadores">
+    <Key>
+      <PropertyRef Name="Id_Indicadores" />
+      <PropertyRef Name="Nom_Indicador" />
+      <PropertyRef Name="Sigla" />
+      <PropertyRef Name="Descripcion" />
+    </Key>
+    <Property Name="Id_Indicadores" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Indicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sigla" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Instrumentos">
+    <Key>
+      <PropertyRef Name="Id_Instrumento" />
+      <PropertyRef Name="Nom_Instrumento" />
+    </Key>
+    <Property Name="Id_Instrumento" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Instrumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Materias">
+    <Key>
+      <PropertyRef Name="Id_Materia" />
+      <PropertyRef Name="Nom_Materia" />
+      <PropertyRef Name="Clave" />
+      <PropertyRef Name="Id_Carrera" />
+    </Key>
+    <Property Name="Id_Materia" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Materia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Carrera" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Perfil">
+    <Key>
+      <PropertyRef Name="Id_Perfil" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Nom_Docente" />
+    </Key>
+    <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nom_Docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Temas">
+    <Key>
+      <PropertyRef Name="Id_Tema" />
+      <PropertyRef Name="Nom_Tema" />
+      <PropertyRef Name="Posicion" />
+      <PropertyRef Name="Id_Grupo" />
+      <PropertyRef Name="Competencia" />
+    </Key>
+    <Property Name="Id_Tema" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Tema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Posicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Grupo" Type="Int32" Nullable="false" />
+    <Property Name="Competencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Usuarios">
+    <Key>
+      <PropertyRef Name="Id_Usuario" />
+      <PropertyRef Name="Nom_Docente" />
+      <PropertyRef Name="Contraseña" />
+      <PropertyRef Name="Correo" />
+      <PropertyRef Name="Id_Perfil" />
+    </Key>
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Nom_Docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SGCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbl_Act_Indicador" EntityType="Self.tbl_Act_Indicador" />
+    <EntitySet Name="tbl_Actividades" EntityType="Self.tbl_Actividades" />
+    <EntitySet Name="tbl_Alumnos" EntityType="Self.tbl_Alumnos" />
+    <EntitySet Name="tbl_Calificaciones" EntityType="Self.tbl_Calificaciones" />
+    <EntitySet Name="tbl_Carreras" EntityType="Self.tbl_Carreras" />
+    <EntitySet Name="tbl_Grupo_Alumno" EntityType="Self.tbl_Grupo_Alumno" />
+    <EntitySet Name="tbl_Grupos" EntityType="Self.tbl_Grupos" />
+    <EntitySet Name="tbl_Indicadores" EntityType="Self.tbl_Indicadores" />
+    <EntitySet Name="tbl_Instrumentos" EntityType="Self.tbl_Instrumentos" />
+    <EntitySet Name="tbl_Materias" EntityType="Self.tbl_Materias" />
+    <EntitySet Name="tbl_Perfil" EntityType="Self.tbl_Perfil" />
+    <EntitySet Name="tbl_Temas" EntityType="Self.tbl_Temas" />
+    <EntitySet Name="tbl_Usuarios" EntityType="Self.tbl_Usuarios" />
+  </EntityContainer>
+</Schema>
