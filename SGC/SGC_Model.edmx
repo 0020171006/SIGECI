@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SGCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.sysdiagrams' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="principal_id" />
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Act_Indicador' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Act_Indicador">
+          <Key>
+            <PropertyRef Name="Id_Act_Indicador" />
+            <PropertyRef Name="Id_Indicador" />
+            <PropertyRef Name="Id_Actividad" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="Id_Act_Indicador" Type="int" Nullable="false" />
+          <Property Name="Id_Indicador" Type="int" Nullable="false" />
+          <Property Name="Id_Actividad" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Actividades' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Actividades">
+          <Key>
+            <PropertyRef Name="Id_Actividad" />
+            <PropertyRef Name="Id_Tema" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Id_Instrumento" />
+          </Key>
+          <Property Name="Id_Actividad" Type="int" Nullable="false" />
+          <Property Name="Id_Tema" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Instrumento" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Alumnos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Alumnos">
+          <Key>
+            <PropertyRef Name="No_Control" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="ApePat" />
+            <PropertyRef Name="ApeMat" />
+          </Key>
+          <Property Name="No_Control" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApePat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApeMat" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Calificaciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Calificaciones">
+          <Key>
+            <PropertyRef Name="Id_Calificacion" />
+            <PropertyRef Name="Id_Actividad" />
+            <PropertyRef Name="No_Control" />
+            <PropertyRef Name="Retroalimentacion" />
+          </Key>
+          <Property Name="Id_Calificacion" Type="int" Nullable="false" />
+          <Property Name="Id_Actividad" Type="int" Nullable="false" />
+          <Property Name="No_Control" Type="int" Nullable="false" />
+          <Property Name="Retroalimentacion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Carreras' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Carreras">
+          <Key>
+            <PropertyRef Name="Id_Carrera" />
+            <PropertyRef Name="Nom_Carrera" />
+          </Key>
+          <Property Name="Id_Carrera" Type="int" Nullable="false" />
+          <Property Name="Nom_Carrera" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Grupo_Alumno' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Grupo_Alumno">
+          <Key>
+            <PropertyRef Name="Id_Grupo_Alumno" />
+            <PropertyRef Name="Clave_Grupo" />
+            <PropertyRef Name="No_Control" />
+          </Key>
+          <Property Name="Id_Grupo_Alumno" Type="int" Nullable="false" />
+          <Property Name="Clave_Grupo" Type="int" Nullable="false" />
+          <Property Name="No_Control" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Grupos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Grupos">
+          <Key>
+            <PropertyRef Name="Clave_Grupo" />
+            <PropertyRef Name="Id_Materia" />
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Clave_Grupo" Type="int" Nullable="false" />
+          <Property Name="Id_Materia" Type="int" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Indicadores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Indicadores">
+          <Key>
+            <PropertyRef Name="Id_Indicadores" />
+            <PropertyRef Name="Nom_Indicador" />
+            <PropertyRef Name="Sigla" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="Id_Indicadores" Type="int" Nullable="false" />
+          <Property Name="Nom_Indicador" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sigla" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Instrumentos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Instrumentos">
+          <Key>
+            <PropertyRef Name="Id_Instrumento" />
+            <PropertyRef Name="Nom_Instrumento" />
+          </Key>
+          <Property Name="Id_Instrumento" Type="int" Nullable="false" />
+          <Property Name="Nom_Instrumento" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Materias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Materias">
+          <Key>
+            <PropertyRef Name="Id_Materia" />
+            <PropertyRef Name="Nom_Materia" />
+            <PropertyRef Name="Clave" />
+            <PropertyRef Name="Id_Carrera" />
+          </Key>
+          <Property Name="Id_Materia" Type="int" Nullable="false" />
+          <Property Name="Nom_Materia" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Carrera" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Perfil' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Perfil">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Nom_Docente" />
+          </Key>
+          <Property Name="Id_Perfil" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom_Docente" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Temas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Temas">
+          <Key>
+            <PropertyRef Name="Id_Tema" />
+            <PropertyRef Name="Nom_Tema" />
+            <PropertyRef Name="Posicion" />
+            <PropertyRef Name="Id_Grupo" />
+            <PropertyRef Name="Competencia" />
+          </Key>
+          <Property Name="Id_Tema" Type="int" Nullable="false" />
+          <Property Name="Nom_Tema" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Grupo" Type="int" Nullable="false" />
+          <Property Name="Competencia" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'SGC.dbo.tbl_Usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tbl_Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+            <PropertyRef Name="Nom_Docente" />
+            <PropertyRef Name="Contraseña" />
+            <PropertyRef Name="Correo" />
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Nom_Docente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Perfil" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SGCModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sysdiagrams].[name] AS [name], 
+    [sysdiagrams].[principal_id] AS [principal_id], 
+    [sysdiagrams].[diagram_id] AS [diagram_id], 
+    [sysdiagrams].[version] AS [version], 
+    [sysdiagrams].[definition] AS [definition]
+    FROM [dbo].[sysdiagrams] AS [sysdiagrams]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Act_Indicador" EntityType="Self.tbl_Act_Indicador" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Act_Indicador].[Id_Act_Indicador] AS [Id_Act_Indicador], 
+    [tbl_Act_Indicador].[Id_Indicador] AS [Id_Indicador], 
+    [tbl_Act_Indicador].[Id_Actividad] AS [Id_Actividad], 
+    [tbl_Act_Indicador].[Valor] AS [Valor]
+    FROM [dbo].[tbl_Act_Indicador] AS [tbl_Act_Indicador]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Actividades" EntityType="Self.tbl_Actividades" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Actividades].[Id_Actividad] AS [Id_Actividad], 
+    [tbl_Actividades].[Id_Tema] AS [Id_Tema], 
+    [tbl_Actividades].[Valor] AS [Valor], 
+    [tbl_Actividades].[Nombre] AS [Nombre], 
+    [tbl_Actividades].[Id_Instrumento] AS [Id_Instrumento]
+    FROM [dbo].[tbl_Actividades] AS [tbl_Actividades]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Alumnos" EntityType="Self.tbl_Alumnos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Alumnos].[No_Control] AS [No_Control], 
+    [tbl_Alumnos].[Nombre] AS [Nombre], 
+    [tbl_Alumnos].[ApePat] AS [ApePat], 
+    [tbl_Alumnos].[ApeMat] AS [ApeMat]
+    FROM [dbo].[tbl_Alumnos] AS [tbl_Alumnos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Calificaciones" EntityType="Self.tbl_Calificaciones" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Calificaciones].[Id_Calificacion] AS [Id_Calificacion], 
+    [tbl_Calificaciones].[Id_Actividad] AS [Id_Actividad], 
+    [tbl_Calificaciones].[No_Control] AS [No_Control], 
+    [tbl_Calificaciones].[Retroalimentacion] AS [Retroalimentacion]
+    FROM [dbo].[tbl_Calificaciones] AS [tbl_Calificaciones]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Carreras" EntityType="Self.tbl_Carreras" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Carreras].[Id_Carrera] AS [Id_Carrera], 
+    [tbl_Carreras].[Nom_Carrera] AS [Nom_Carrera]
+    FROM [dbo].[tbl_Carreras] AS [tbl_Carreras]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Grupo_Alumno" EntityType="Self.tbl_Grupo_Alumno" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Grupo_Alumno].[Id_Grupo_Alumno] AS [Id_Grupo_Alumno], 
+    [tbl_Grupo_Alumno].[Clave_Grupo] AS [Clave_Grupo], 
+    [tbl_Grupo_Alumno].[No_Control] AS [No_Control]
+    FROM [dbo].[tbl_Grupo_Alumno] AS [tbl_Grupo_Alumno]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Grupos" EntityType="Self.tbl_Grupos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Grupos].[Clave_Grupo] AS [Clave_Grupo], 
+    [tbl_Grupos].[Id_Materia] AS [Id_Materia], 
+    [tbl_Grupos].[Id_Usuario] AS [Id_Usuario]
+    FROM [dbo].[tbl_Grupos] AS [tbl_Grupos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Indicadores" EntityType="Self.tbl_Indicadores" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Indicadores].[Id_Indicadores] AS [Id_Indicadores], 
+    [tbl_Indicadores].[Nom_Indicador] AS [Nom_Indicador], 
+    [tbl_Indicadores].[Sigla] AS [Sigla], 
+    [tbl_Indicadores].[Descripcion] AS [Descripcion]
+    FROM [dbo].[tbl_Indicadores] AS [tbl_Indicadores]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Instrumentos" EntityType="Self.tbl_Instrumentos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Instrumentos].[Id_Instrumento] AS [Id_Instrumento], 
+    [tbl_Instrumentos].[Nom_Instrumento] AS [Nom_Instrumento]
+    FROM [dbo].[tbl_Instrumentos] AS [tbl_Instrumentos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Materias" EntityType="Self.tbl_Materias" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Materias].[Id_Materia] AS [Id_Materia], 
+    [tbl_Materias].[Nom_Materia] AS [Nom_Materia], 
+    [tbl_Materias].[Clave] AS [Clave], 
+    [tbl_Materias].[Id_Carrera] AS [Id_Carrera]
+    FROM [dbo].[tbl_Materias] AS [tbl_Materias]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Perfil" EntityType="Self.tbl_Perfil" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Perfil].[Id_Perfil] AS [Id_Perfil], 
+    [tbl_Perfil].[Descripcion] AS [Descripcion], 
+    [tbl_Perfil].[Nom_Docente] AS [Nom_Docente]
+    FROM [dbo].[tbl_Perfil] AS [tbl_Perfil]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Temas" EntityType="Self.tbl_Temas" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Temas].[Id_Tema] AS [Id_Tema], 
+    [tbl_Temas].[Nom_Tema] AS [Nom_Tema], 
+    [tbl_Temas].[Posicion] AS [Posicion], 
+    [tbl_Temas].[Id_Grupo] AS [Id_Grupo], 
+    [tbl_Temas].[Competencia] AS [Competencia]
+    FROM [dbo].[tbl_Temas] AS [tbl_Temas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Usuarios" EntityType="Self.tbl_Usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Usuarios].[Id_Usuario] AS [Id_Usuario], 
+    [tbl_Usuarios].[Nom_Docente] AS [Nom_Docente], 
+    [tbl_Usuarios].[Contraseña] AS [Contraseña], 
+    [tbl_Usuarios].[Correo] AS [Correo], 
+    [tbl_Usuarios].[Id_Perfil] AS [Id_Perfil]
+    FROM [dbo].[tbl_Usuarios] AS [tbl_Usuarios]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SGCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="name" />
+            <PropertyRef Name="principal_id" />
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Act_Indicador">
+          <Key>
+            <PropertyRef Name="Id_Act_Indicador" />
+            <PropertyRef Name="Id_Indicador" />
+            <PropertyRef Name="Id_Actividad" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="Id_Act_Indicador" Type="Int32" Nullable="false" />
+          <Property Name="Id_Indicador" Type="Int32" Nullable="false" />
+          <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Actividades">
+          <Key>
+            <PropertyRef Name="Id_Actividad" />
+            <PropertyRef Name="Id_Tema" />
+            <PropertyRef Name="Valor" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="Id_Instrumento" />
+          </Key>
+          <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+          <Property Name="Id_Tema" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Instrumento" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Alumnos">
+          <Key>
+            <PropertyRef Name="No_Control" />
+            <PropertyRef Name="Nombre" />
+            <PropertyRef Name="ApePat" />
+            <PropertyRef Name="ApeMat" />
+          </Key>
+          <Property Name="No_Control" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApePat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApeMat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Calificaciones">
+          <Key>
+            <PropertyRef Name="Id_Calificacion" />
+            <PropertyRef Name="Id_Actividad" />
+            <PropertyRef Name="No_Control" />
+            <PropertyRef Name="Retroalimentacion" />
+          </Key>
+          <Property Name="Id_Calificacion" Type="Int32" Nullable="false" />
+          <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+          <Property Name="No_Control" Type="Int32" Nullable="false" />
+          <Property Name="Retroalimentacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Carreras">
+          <Key>
+            <PropertyRef Name="Id_Carrera" />
+            <PropertyRef Name="Nom_Carrera" />
+          </Key>
+          <Property Name="Id_Carrera" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Grupo_Alumno">
+          <Key>
+            <PropertyRef Name="Id_Grupo_Alumno" />
+            <PropertyRef Name="Clave_Grupo" />
+            <PropertyRef Name="No_Control" />
+          </Key>
+          <Property Name="Id_Grupo_Alumno" Type="Int32" Nullable="false" />
+          <Property Name="Clave_Grupo" Type="Int32" Nullable="false" />
+          <Property Name="No_Control" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Grupos">
+          <Key>
+            <PropertyRef Name="Clave_Grupo" />
+            <PropertyRef Name="Id_Materia" />
+            <PropertyRef Name="Id_Usuario" />
+          </Key>
+          <Property Name="Clave_Grupo" Type="Int32" Nullable="false" />
+          <Property Name="Id_Materia" Type="Int32" Nullable="false" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Indicadores">
+          <Key>
+            <PropertyRef Name="Id_Indicadores" />
+            <PropertyRef Name="Nom_Indicador" />
+            <PropertyRef Name="Sigla" />
+            <PropertyRef Name="Descripcion" />
+          </Key>
+          <Property Name="Id_Indicadores" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Indicador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sigla" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Instrumentos">
+          <Key>
+            <PropertyRef Name="Id_Instrumento" />
+            <PropertyRef Name="Nom_Instrumento" />
+          </Key>
+          <Property Name="Id_Instrumento" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Instrumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Materias">
+          <Key>
+            <PropertyRef Name="Id_Materia" />
+            <PropertyRef Name="Nom_Materia" />
+            <PropertyRef Name="Clave" />
+            <PropertyRef Name="Id_Carrera" />
+          </Key>
+          <Property Name="Id_Materia" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Materia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Carrera" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Perfil">
+          <Key>
+            <PropertyRef Name="Id_Perfil" />
+            <PropertyRef Name="Descripcion" />
+            <PropertyRef Name="Nom_Docente" />
+          </Key>
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nom_Docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Temas">
+          <Key>
+            <PropertyRef Name="Id_Tema" />
+            <PropertyRef Name="Nom_Tema" />
+            <PropertyRef Name="Posicion" />
+            <PropertyRef Name="Id_Grupo" />
+            <PropertyRef Name="Competencia" />
+          </Key>
+          <Property Name="Id_Tema" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Tema" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Posicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Grupo" Type="Int32" Nullable="false" />
+          <Property Name="Competencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Usuarios">
+          <Key>
+            <PropertyRef Name="Id_Usuario" />
+            <PropertyRef Name="Nom_Docente" />
+            <PropertyRef Name="Contraseña" />
+            <PropertyRef Name="Correo" />
+            <PropertyRef Name="Id_Perfil" />
+          </Key>
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Nom_Docente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Perfil" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SGCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tbl_Act_Indicador" EntityType="Self.tbl_Act_Indicador" />
+          <EntitySet Name="tbl_Actividades" EntityType="Self.tbl_Actividades" />
+          <EntitySet Name="tbl_Alumnos" EntityType="Self.tbl_Alumnos" />
+          <EntitySet Name="tbl_Calificaciones" EntityType="Self.tbl_Calificaciones" />
+          <EntitySet Name="tbl_Carreras" EntityType="Self.tbl_Carreras" />
+          <EntitySet Name="tbl_Grupo_Alumno" EntityType="Self.tbl_Grupo_Alumno" />
+          <EntitySet Name="tbl_Grupos" EntityType="Self.tbl_Grupos" />
+          <EntitySet Name="tbl_Indicadores" EntityType="Self.tbl_Indicadores" />
+          <EntitySet Name="tbl_Instrumentos" EntityType="Self.tbl_Instrumentos" />
+          <EntitySet Name="tbl_Materias" EntityType="Self.tbl_Materias" />
+          <EntitySet Name="tbl_Perfil" EntityType="Self.tbl_Perfil" />
+          <EntitySet Name="tbl_Temas" EntityType="Self.tbl_Temas" />
+          <EntitySet Name="tbl_Usuarios" EntityType="Self.tbl_Usuarios" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SGCModelStoreContainer" CdmEntityContainer="SGCEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SGCModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Act_Indicador">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Act_Indicador">
+              <MappingFragment StoreEntitySet="tbl_Act_Indicador">
+                <ScalarProperty Name="Id_Act_Indicador" ColumnName="Id_Act_Indicador" />
+                <ScalarProperty Name="Id_Indicador" ColumnName="Id_Indicador" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Actividades">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Actividades">
+              <MappingFragment StoreEntitySet="tbl_Actividades">
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="Id_Tema" ColumnName="Id_Tema" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Instrumento" ColumnName="Id_Instrumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Alumnos">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Alumnos">
+              <MappingFragment StoreEntitySet="tbl_Alumnos">
+                <ScalarProperty Name="No_Control" ColumnName="No_Control" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApePat" ColumnName="ApePat" />
+                <ScalarProperty Name="ApeMat" ColumnName="ApeMat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Calificaciones">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Calificaciones">
+              <MappingFragment StoreEntitySet="tbl_Calificaciones">
+                <ScalarProperty Name="Id_Calificacion" ColumnName="Id_Calificacion" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="No_Control" ColumnName="No_Control" />
+                <ScalarProperty Name="Retroalimentacion" ColumnName="Retroalimentacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Carreras">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Carreras">
+              <MappingFragment StoreEntitySet="tbl_Carreras">
+                <ScalarProperty Name="Id_Carrera" ColumnName="Id_Carrera" />
+                <ScalarProperty Name="Nom_Carrera" ColumnName="Nom_Carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Grupo_Alumno">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Grupo_Alumno">
+              <MappingFragment StoreEntitySet="tbl_Grupo_Alumno">
+                <ScalarProperty Name="Id_Grupo_Alumno" ColumnName="Id_Grupo_Alumno" />
+                <ScalarProperty Name="Clave_Grupo" ColumnName="Clave_Grupo" />
+                <ScalarProperty Name="No_Control" ColumnName="No_Control" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Grupos">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Grupos">
+              <MappingFragment StoreEntitySet="tbl_Grupos">
+                <ScalarProperty Name="Clave_Grupo" ColumnName="Clave_Grupo" />
+                <ScalarProperty Name="Id_Materia" ColumnName="Id_Materia" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Indicadores">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Indicadores">
+              <MappingFragment StoreEntitySet="tbl_Indicadores">
+                <ScalarProperty Name="Id_Indicadores" ColumnName="Id_Indicadores" />
+                <ScalarProperty Name="Nom_Indicador" ColumnName="Nom_Indicador" />
+                <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Instrumentos">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Instrumentos">
+              <MappingFragment StoreEntitySet="tbl_Instrumentos">
+                <ScalarProperty Name="Id_Instrumento" ColumnName="Id_Instrumento" />
+                <ScalarProperty Name="Nom_Instrumento" ColumnName="Nom_Instrumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Materias">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Materias">
+              <MappingFragment StoreEntitySet="tbl_Materias">
+                <ScalarProperty Name="Id_Materia" ColumnName="Id_Materia" />
+                <ScalarProperty Name="Nom_Materia" ColumnName="Nom_Materia" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Id_Carrera" ColumnName="Id_Carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Perfil">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Perfil">
+              <MappingFragment StoreEntitySet="tbl_Perfil">
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nom_Docente" ColumnName="Nom_Docente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Temas">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Temas">
+              <MappingFragment StoreEntitySet="tbl_Temas">
+                <ScalarProperty Name="Id_Tema" ColumnName="Id_Tema" />
+                <ScalarProperty Name="Nom_Tema" ColumnName="Nom_Tema" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Id_Grupo" ColumnName="Id_Grupo" />
+                <ScalarProperty Name="Competencia" ColumnName="Competencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Usuarios">
+            <EntityTypeMapping TypeName="SGCModel.tbl_Usuarios">
+              <MappingFragment StoreEntitySet="tbl_Usuarios">
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Nom_Docente" ColumnName="Nom_Docente" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
