@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SGCModelStoreContainer" CdmEntityContainer="SGCEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SGCModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Act_Indicador">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Act_Indicador">
+        <MappingFragment StoreEntitySet="tbl_Act_Indicador">
+          <ScalarProperty Name="Id_Act_Indicador" ColumnName="Id_Act_Indicador" />
+          <ScalarProperty Name="Id_Indicador" ColumnName="Id_Indicador" />
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Actividades">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Actividades">
+        <MappingFragment StoreEntitySet="tbl_Actividades">
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+          <ScalarProperty Name="Id_Tema" ColumnName="Id_Tema" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id_Instrumento" ColumnName="Id_Instrumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Alumnos">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Alumnos">
+        <MappingFragment StoreEntitySet="tbl_Alumnos">
+          <ScalarProperty Name="No_Control" ColumnName="No_Control" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApePat" ColumnName="ApePat" />
+          <ScalarProperty Name="ApeMat" ColumnName="ApeMat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Calificaciones">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Calificaciones">
+        <MappingFragment StoreEntitySet="tbl_Calificaciones">
+          <ScalarProperty Name="Id_Calificacion" ColumnName="Id_Calificacion" />
+          <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+          <ScalarProperty Name="No_Control" ColumnName="No_Control" />
+          <ScalarProperty Name="Retroalimentacion" ColumnName="Retroalimentacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Carreras">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Carreras">
+        <MappingFragment StoreEntitySet="tbl_Carreras">
+          <ScalarProperty Name="Id_Carrera" ColumnName="Id_Carrera" />
+          <ScalarProperty Name="Nom_Carrera" ColumnName="Nom_Carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Grupo_Alumno">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Grupo_Alumno">
+        <MappingFragment StoreEntitySet="tbl_Grupo_Alumno">
+          <ScalarProperty Name="Id_Grupo_Alumno" ColumnName="Id_Grupo_Alumno" />
+          <ScalarProperty Name="Clave_Grupo" ColumnName="Clave_Grupo" />
+          <ScalarProperty Name="No_Control" ColumnName="No_Control" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Grupos">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Grupos">
+        <MappingFragment StoreEntitySet="tbl_Grupos">
+          <ScalarProperty Name="Clave_Grupo" ColumnName="Clave_Grupo" />
+          <ScalarProperty Name="Id_Materia" ColumnName="Id_Materia" />
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Indicadores">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Indicadores">
+        <MappingFragment StoreEntitySet="tbl_Indicadores">
+          <ScalarProperty Name="Id_Indicadores" ColumnName="Id_Indicadores" />
+          <ScalarProperty Name="Nom_Indicador" ColumnName="Nom_Indicador" />
+          <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Instrumentos">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Instrumentos">
+        <MappingFragment StoreEntitySet="tbl_Instrumentos">
+          <ScalarProperty Name="Id_Instrumento" ColumnName="Id_Instrumento" />
+          <ScalarProperty Name="Nom_Instrumento" ColumnName="Nom_Instrumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Materias">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Materias">
+        <MappingFragment StoreEntitySet="tbl_Materias">
+          <ScalarProperty Name="Id_Materia" ColumnName="Id_Materia" />
+          <ScalarProperty Name="Nom_Materia" ColumnName="Nom_Materia" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Id_Carrera" ColumnName="Id_Carrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Perfil">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Perfil">
+        <MappingFragment StoreEntitySet="tbl_Perfil">
+          <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nom_Docente" ColumnName="Nom_Docente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Temas">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Temas">
+        <MappingFragment StoreEntitySet="tbl_Temas">
+          <ScalarProperty Name="Id_Tema" ColumnName="Id_Tema" />
+          <ScalarProperty Name="Nom_Tema" ColumnName="Nom_Tema" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Id_Grupo" ColumnName="Id_Grupo" />
+          <ScalarProperty Name="Competencia" ColumnName="Competencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Usuarios">
+      <EntityTypeMapping TypeName="SGCModel.tbl_Usuarios">
+        <MappingFragment StoreEntitySet="tbl_Usuarios">
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Nom_Docente" ColumnName="Nom_Docente" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Id_Perfil" ColumnName="Id_Perfil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
