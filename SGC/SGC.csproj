@@ -244,6 +244,8 @@
     <Content Include="SGC_Model.edmx.diagram">
       <DependentUpon>SGC_Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
