@@ -15,29 +15,42 @@ namespace SGC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(tbl_Usuarios objId_Usuario)
+        public ActionResult Login(tbl_Usuarios objUser)
         {
             if (ModelState.IsValid)
             {
                 using (SGCEntities db = new SGCEntities())
                 {
-                    var obj = db.tbl_Usuarios.Where(a => a.Id_Usuario.Equals(objId_Usuario) && a.Contraseña.Equals(objId_Usuario.Contraseña)).FirstOrDefault();
+                    var obj = db.tbl_Usuarios.Where(a => a.Id_Usuario.Equals(objUser.Id_Usuario) && a.Contraseña.Equals(objUser.Contraseña)).FirstOrDefault();
                     if (obj != null)
                     {
                         Session["Id_Usuario"] = obj.Id_Usuario.ToString();
                         Session["Nom_Docente"] = obj.Nom_Docente.ToString();
-                        return RedirectToAction("About");
+                        return RedirectToAction("Inicio");
                     }
 
                 }
             }
-            return View(objId_Usuario);
+            return View(objUser);
         }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
+        }
+
+        public ActionResult Inicio()
+        {
+            if (Session["Id_Usuario"] != null)
+            {
+                return View();
+            } else
+            {
+                return RedirectToAction("Login");
+            }
+            
+
         }
 
         public ActionResult Contact()
