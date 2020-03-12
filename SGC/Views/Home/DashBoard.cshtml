@@ -1,0 +1,15 @@
+﻿@model SGC.tbl_Usuarios
+
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+<h2>DashBoard</h2>
+
+< fieldset >
+    < legend > User DashBoard < /legend>
+
+@if (Session["Nom_Docente"] != null)
+{< text >
+    Welcome @Session["Nom_Docente"].ToString() < /text>
+    } < /fieldset>  

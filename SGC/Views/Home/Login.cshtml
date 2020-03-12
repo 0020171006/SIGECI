@@ -1,0 +1,47 @@
+﻿@model SGC.tbl_Usuarios
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="jumbotron">
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        <h1>SiGECI</h1>
+        <p class="lead">Sistema de Gestión de Capacidades e Indicadores</p>
+
+        <fieldset>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+            <table align="center">
+
+                <tr>
+                    <td>@Html.LabelFor(a => a.Id_Usuario)</td>
+                    <td>@Html.TextBoxFor(a => a.Id_Usuario)</td>
+                    <td>@Html.ValidationMessageFor(a => a.Id_Usuario)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(a => a.Contraseña)</td>
+                    <td>@Html.PasswordFor(a => a.Contraseña)</td>
+                    <td>@Html.ValidationMessageFor(a => a.Contraseña)</td>
+                    <br />
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Iniciar Sesión" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
