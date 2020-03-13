@@ -5,10 +5,195 @@
 }
 
 <h2>SiGECI</h2>
-<p class="lead">Sistema de Gestión de Capacidades e Indicadores Hola</p>
+<p class="lead">Sistema de Gestión de Capacidades e Indicadores </p>
 
 <fieldset>
-    
-    @if (Session["Nom_Docente"] != null) {
-        //Welcome @Session["Nom_Docente"].ToString() 
-    } </fieldset>
+
+    @if (Session["Nom_Docente"] != null)
+    {
+        //Welcome @Session["Nom_Docente"].ToString()
+    }
+</fieldset>
+
+
+<br />
+<br />
+<br />
+<br />
+<div class="content below-toolbar">
+    <div class="dashboard">
+
+        <div class="dash-wrapper-large">
+            <div class="dash-item">
+                <div class="dash-item-title">
+                    <h3>Alumnos por Carrera: @ViewBag.TotalProyectos</h3>
+                </div>
+                <div class="dash-item-content row">
+                    <div class="col-sm-6">
+                        <div id="chart-pie-legend" class="chart-legend rounded"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <canvas id="chart-pie" class="chart-container medium"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-wrapper-large">
+            <div class="dash-item">
+                <div class="dash-item-title">
+                    <h3>Estatus de proyectos</h3>
+                </div>
+                <div class="dash-item-content row">
+                    <div class="col-sm-6">
+                        <div id="chart-pie-legend3" class="chart-legend rounded"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <canvas id="chart-pie3" class="chart-container medium"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="dash-wrapper-large">
+            <div class="dash-item">
+                <div class="dash-item-title">
+                    <h3>Proyectos por entidad</h3>
+                </div>
+                <div class="dash-item-content row">
+                    <div class="col-sm-12">
+                        <div id="chart-bar-legendEnt" class="chart-legend horizontal"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <canvas id="chart-barEnt" class="chart-container medium"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="dash-wrapper-large">
+            <div class="dash-item">
+                <div class="dash-item-title">
+                    <h3>Alumnos por Aprovación</h3>
+                </div>
+                <div class="dash-item-content row">
+                    <div class="col-sm-8">
+                        <canvas id="chart-doughnut" class="chart-container medium"></canvas>
+                    </div>
+                    <div class="col-sm-4">
+                        <div id="chart-doughnut-legend" class="chart-legend rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-wrapper-large">
+            <div class="dash-item">
+                <div class="dash-item-title">
+                    <h3>Proyectos por fase y costo</h3>
+                </div>
+                <div class="dash-item-content row">
+                    <div class="col-sm-12">
+                        <div id="chart-bar-legend" class="chart-legend horizontal"></div>
+                    </div>
+                    <div class="col-sm-12">
+                        <canvas id="chart-bar" class="chart-container medium"></canvas>
+                    </div>
+
+                    ["I.S.", "I.F.", "I.G", "I.M", "I.A", "I.C.", "I.AD", "Total"];
+
+                    <div id="legendFaseCosto" style="font-size:86%; text-align: right; color: gray;">
+                        &nbsp<br>
+                        I.S.=  Ingenieria Sistemas, I.F.=  Ingenieria Informatica, I.G.= Ingenieria Gestion,
+                        I.M.= Ingenieria Mecatronica,<br /I.A.= Ingenieria Alimentariaas, I.C.= Ingenieria , I.AD.= Ingenieria Admin
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dash-wrapper-large">
+            <div class="dash-item">
+                <div class="dash-item-title">
+                    <h3>Estatus de proyectos aprobados</h3>
+                </div>
+                <div class="dash-item-content row">
+                    <div class="col-sm-6">
+                        <div id="chart-pie-legend2" class="chart-legend rounded"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <canvas id="chart-pie2" class="chart-container medium"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<div style="display:none">
+    <input type="hidden" id="TotalProyectos" name="TotalProyectos" value="@ViewBag.TotalProyectos" />
+
+    @*  Grafica Total de proyectos  *@
+    <input type="hidden" id="FactibFinan" name="FactibFinan" value="@ViewBag.FactibFinan" />
+    <input type="hidden" id="DictTecnico" name="DictTecnico" value="@ViewBag.DictTecnico" />
+    <input type="hidden" id="Autorizacion" name="Autorizacion" value="@ViewBag.Autorizacion" />
+    <input type="hidden" id="RegSolInic" name="RegSolInic" value="@ViewBag.RegSolInic" />
+    <input type="hidden" id="RegAntepry" name="RegAntepry" value="@ViewBag.RegAntepry" />
+    <input type="hidden" id="RegAvances" name="RegAvances" value="@ViewBag.RegAvances" />
+    <input type="hidden" id="CierrePry" name="CierrePry" value="@ViewBag.CierrePry" />
+
+    @*  Grafica Tipos de proyectos  *@
+    <input type="hidden" id="pryEstrategicos" name="pryEstrategicos" value="@ViewBag.pryEstrategicos" />
+    <input type="hidden" id="pryTacticos" name="pryTacticos" value="@ViewBag.pryTacticos" />
+    <input type="hidden" id="pryOperativo" name="pryOperativo" value="@ViewBag.pryOperativo" />
+
+    @*  Grafica Proyectos finalizados    *@
+    <input type="hidden" id="PryEnProceso" name="PryEnProceso" value="@ViewBag.PryEnProceso" />
+    <input type="hidden" id="PryFinalizados" name="PryFinalizados" value="@ViewBag.PryFinalizados" />
+
+    @*   Grafico pie Proyectos Autorizados - no autorizados - en proceso de autorización  *@
+    <input type="hidden" id="PryAut" name="PryAut" value="@ViewBag.PryAut" />
+    <input type="hidden" id="PryNoAprob" name="PryNoAprob" value="@ViewBag.PryNoAprob" />
+    <input type="hidden" id="PryProce" name="PryProce" value="@ViewBag.PryProce" />
+
+    @*  grafico proyecto por fase y costos *@
+    <input type="hidden" id="costoRegIniciat" name="costoRegIniciat" value="@ViewBag.costoRegIniciat" />
+    <input type="hidden" id="costoTotalPryAutIni" name="costoTotalPryAutIni" value="@ViewBag.costoTotalPryAutIni" />
+    <input type="hidden" id="costoComplAntPry" name="costoComplAntPry" value="@ViewBag.costoComplAntPry" />
+    <input type="hidden" id="costoTotalPryDicT" name="costoTotalPryDicT" value="@ViewBag.costoTotalPryDicT" />
+    <input type="hidden" id="costoTotalPryAutor" name="costoTotalPryAutor" value="@ViewBag.costoTotalPryAutor" />
+    <input type="hidden" id="costoTotalRegAvanc" name="costoTotalRegAvanc" value="@ViewBag.costoTotalRegAvanc" />
+    <input type="hidden" id="costoTotalLibera" name="costoTotalLibera" value="@ViewBag.costoTotalLibera" />
+</div>
+
+
+
+
+@section Scripts{
+    <link href="~/Content/estilos.css" rel="stylesheet" />
+
+    <link href="~/Content/estilosLayout.css" rel="stylesheet" />
+
+    <link href="~/Content/Uv/bootstrap-uv.css" rel="stylesheet" />
+    <link href="~/Content/Uv/bootstrap-uv.min.css" rel="stylesheet" />
+
+    <script src="~/Content/Uv/bootstrap-uv.js"></script>
+    <script src="~/Content/Uv/bootstrap-uv.min.js"></script>
+
+    <script src="~/Scripts/Scripts_Graficos/jquery-ui.min.js"></script>
+
+
+
+    <script src="~/Scripts/chart/Chart.min.js"></script>
+    <script src="~/Scripts/Graficos/Dashboard.js"></script>
+
+}
